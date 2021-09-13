@@ -21,7 +21,9 @@ class Phonebook extends Component {
 
   componentDidMount() {
     const localContacts = JSON.parse(localStorage.getItem("contacts"));
-    this.setState({ contacts: localContacts });
+    localContacts
+      ? this.setState({ contacts: localContacts })
+      : this.setState({ contacts: [] });
   }
 
   deleteContact = (data) => {
